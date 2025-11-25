@@ -1,18 +1,27 @@
 package com.talento.ecommerce.api.model;
 
-public class Articulo {
+import jakarta.persistence.*;
 
+
+@Entity
+@Table(name = "articulos")
+public class Articulo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY  )
     private Long id;
+
     private String nombre;
     private Double precio;
+    private String imagen;
 
     public Articulo() {
     }   
 
-    public Articulo(Long id, String nombre, Double precio) {
+    public Articulo(Long id, String nombre, Double precio, String imagen) {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
+        this.imagen = imagen;
     }
 
     public Long getId() {
@@ -33,5 +42,11 @@ public class Articulo {
     public void setPrecio(Double precio) {
         this.precio = precio;
     }
+    public String getImagen() {
+        return imagen;
+    }
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }   
         
 }
